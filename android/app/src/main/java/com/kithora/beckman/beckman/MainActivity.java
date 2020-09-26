@@ -1,0 +1,6 @@
+package com.kithora.beckman.beckman;
+
+import io.flutter.embedding.android.FlutterActivity;
+
+public class MainActivity extends FlutterActivity {
+}
