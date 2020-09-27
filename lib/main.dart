@@ -1,6 +1,4 @@
 import 'package:beckman/pages/management/intro/intro_page_1.dart';
-import 'package:beckman/pages/management/intro/intro_page_2.dart';
-import 'package:beckman/pages/spine.dart';
 import 'package:dynamic_theme/dynamic_theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -25,8 +23,7 @@ class MyApp extends StatelessWidget {
 
             // TODO Make this check sharedprefs to see if IntroPage should be instantiated
 
-            home: Spine()
-        );
+            home: IntroPage1());
       },
     );
   }
