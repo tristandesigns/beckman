@@ -16,12 +16,32 @@ class _ContactListItemState extends State<ContactListItem> {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-        child: Column(
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text("${this.lastName}, ${this.firstName}", style: TextStyle(fontWeight: FontWeight.bold),),
-            Text(this.email)
+            Text(
+              "${this.lastName}, ${this.firstName}",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+            ),
+            Text("Teacher")
           ],
-        ));
+        ),
+        Divider(),
+      ],
+    );
+
+    /*Card(
+        child: Column(
+      children: [
+        Text(
+          "${this.lastName}, ${this.firstName}",
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        Text(this.email)
+      ],
+    ));*/
   }
 }
