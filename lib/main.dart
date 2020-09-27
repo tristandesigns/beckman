@@ -1,3 +1,5 @@
+import 'package:beckman/pages/management/intro/intro_page_1.dart';
+import 'package:beckman/pages/management/intro/intro_page_2.dart';
 import 'package:beckman/pages/spine.dart';
 import 'package:dynamic_theme/dynamic_theme.dart';
 import 'package:flutter/cupertino.dart';
@@ -7,19 +9,14 @@ void main() {
   runApp(MyApp());
 }
 
-
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     return DynamicTheme(
       defaultBrightness: Brightness.light,
       data: (brightness) {
-        return ThemeData(
-          primarySwatch: Colors.indigo,
-          brightness: brightness,
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-        );
+        if (brightness == Brightness.dark) return darkTheme;
+        return lightTheme;
       },
       themedWidgetBuilder: (BuildContext context, ThemeData themeData) {
         return MaterialApp(
@@ -34,3 +31,15 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+var darkTheme = ThemeData(
+  primarySwatch: Colors.indigo,
+  brightness: Brightness.dark,
+  visualDensity: VisualDensity.adaptivePlatformDensity,
+);
+
+var lightTheme = ThemeData(
+  primarySwatch: Colors.indigo,
+  brightness: Brightness.light,
+  visualDensity: VisualDensity.adaptivePlatformDensity,
+);
