@@ -7,6 +7,7 @@ import 'contacts/contacts_page.dart';
 import 'help/help_page.dart';
 import 'home/home_page.dart';
 import 'management/settings/settings_page.dart';
+import 'dart:math' as math;
 
 class Spine extends StatefulWidget {
   @override
@@ -48,7 +49,10 @@ class _SpineState extends State<Spine> {
           )
         ],
         leading: IconButton(
-          icon: Icon(Icons.brightness_3),
+          icon: Transform.rotate(
+            angle: 135 * math.pi / 180,
+            child: DynamicTheme.of(context).brightness == Brightness.dark ? Icon(Icons.wb_sunny) : Icon(Icons.brightness_3),
+          ),
           onPressed: () => DynamicTheme.of(context).setBrightness(DynamicTheme.of(context).brightness == Brightness.dark ? Brightness.light : Brightness.dark),
           tooltip: "Change Brightness",
         ),
