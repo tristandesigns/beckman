@@ -14,7 +14,7 @@ class IntroPageTools {
         if (onPressed != null) {
           onPressed();
           return;
-        };
+        }
         Navigator.of(context).push(CupertinoPageRoute(builder: (context) => nextPage));
       },
     );
