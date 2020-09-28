@@ -3,6 +3,8 @@ import 'package:dynamic_theme/dynamic_theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'pages/spine.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -23,7 +25,7 @@ class MyApp extends StatelessWidget {
 
             // TODO Make this check sharedprefs to see if IntroPage should be instantiated
 
-            home: IntroPage1());
+            home: Spine());//IntroPage1());
       },
     );
   }
