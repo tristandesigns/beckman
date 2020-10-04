@@ -10,7 +10,8 @@ class IntroPage2 extends StatefulWidget {
   _IntroPage2State createState() => _IntroPage2State();
 }
 
-class _IntroPage2State extends State<IntroPage2> with SingleTickerProviderStateMixin {
+class _IntroPage2State extends State<IntroPage2>
+    with SingleTickerProviderStateMixin {
   TextEditingController _firstName = TextEditingController();
   TextEditingController _lastName = TextEditingController();
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -20,29 +21,30 @@ class _IntroPage2State extends State<IntroPage2> with SingleTickerProviderStateM
 
   void initState() {
     _controller = AnimationController(
-      vsync: this,
-      duration: Duration(milliseconds: 0),
-      reverseDuration: Duration(milliseconds: 500)
-    );
+        vsync: this,
+        duration: Duration(milliseconds: 0),
+        reverseDuration: Duration(milliseconds: 500));
 
     _colorTween = ColorTween(
-        begin: Colors.grey[800].withOpacity(0.25),
-        end: Colors.red.withOpacity(0.5),
+      begin: Colors.grey[800].withOpacity(0.25),
+      end: Colors.red.withOpacity(0.5),
     ).animate(_controller)
-    ..addListener(() { setState(() { }); });
+      ..addListener(() {
+        setState(() {});
+      });
     super.initState();
   }
-  
+
   void dispose() {
     _controller.dispose();
     super.dispose();
   }
 
   String validator(String value) {
-      if (value.isEmpty) {
-        return "Don't leave this blank!";
-      }
-      return null;
+    if (value.isEmpty) {
+      return "Don't leave this blank!";
+    }
+    return null;
   }
 
   @override
@@ -65,18 +67,21 @@ class _IntroPage2State extends State<IntroPage2> with SingleTickerProviderStateM
         child: GestureDetector(
           onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
           child: Scaffold(
-            floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+            floatingActionButtonLocation:
+                FloatingActionButtonLocation.endDocked,
             floatingActionButton: IntroPageTools.getFloatingActionButton(
                 context, Icon(Icons.arrow_forward), "Next", IntroPage3(), () {
               IntroPageTools.firstName = _firstName.text;
               IntroPageTools.lastName = _lastName.text;
               if (!_formKey.currentState.validate()) return;
-              if (IntroPageTools.age == null || !(IntroPageTools.age >= 9 && IntroPageTools.age <= 12)){
-                  _controller.forward();
-                  _controller.reverse();
+              if (IntroPageTools.age == null ||
+                  !(IntroPageTools.age >= 9 && IntroPageTools.age <= 12)) {
+                _controller.forward();
+                _controller.reverse();
                 return;
-              };
-              Navigator.of(context).push(CupertinoPageRoute(builder: (context) => IntroPage3()));
+              }
+              Navigator.of(context)
+                  .push(CupertinoPageRoute(builder: (context) => IntroPage3()));
             }),
             bottomNavigationBar: IntroPageTools.getBottomAppBar(context, true),
             backgroundColor: Colors.transparent,
@@ -115,7 +120,8 @@ class _IntroPage2State extends State<IntroPage2> with SingleTickerProviderStateM
                                         fontSize: 40))),
                             Padding(padding: EdgeInsets.all(5)),
                             Text("What is your name?",
-                                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
+                                style: TextStyle(
+                                    fontSize: 30, fontWeight: FontWeight.bold)),
                             Padding(padding: EdgeInsets.all(5)),
                             Row(
                               mainAxisSize: MainAxisSize.min,
@@ -128,7 +134,9 @@ class _IntroPage2State extends State<IntroPage2> with SingleTickerProviderStateM
                                     onChanged: (text) {
                                       IntroPageTools.firstName = text;
                                     },
-                                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 22),
                                     cursorColor: Colors.white,
                                     decoration: InputDecoration(
                                       labelText: "First Name",
@@ -136,14 +144,17 @@ class _IntroPage2State extends State<IntroPage2> with SingleTickerProviderStateM
                                         borderRadius: BorderRadius.circular(15),
                                       ),
                                       errorBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(15),
-                                        borderSide: BorderSide(color: Colors.white)
-                                      ),
-                                      errorStyle: TextStyle(color: Colors.white),
+                                          borderRadius:
+                                              BorderRadius.circular(15),
+                                          borderSide:
+                                              BorderSide(color: Colors.white)),
+                                      errorStyle:
+                                          TextStyle(color: Colors.white),
                                       focusedErrorBorder: OutlineInputBorder(
-                                          borderRadius: BorderRadius.circular(15),
-                                          borderSide: BorderSide(color: Colors.white)
-                                      ),
+                                          borderRadius:
+                                              BorderRadius.circular(15),
+                                          borderSide:
+                                              BorderSide(color: Colors.white)),
                                     ),
                                   ),
                                 ),
@@ -159,7 +170,9 @@ class _IntroPage2State extends State<IntroPage2> with SingleTickerProviderStateM
                                     onChanged: (text) {
                                       IntroPageTools.lastName = text;
                                     },
-                                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 22),
                                     cursorColor: Colors.white,
                                     decoration: InputDecoration(
                                       labelText: "Last Name",
@@ -167,14 +180,17 @@ class _IntroPage2State extends State<IntroPage2> with SingleTickerProviderStateM
                                         borderRadius: BorderRadius.circular(15),
                                       ),
                                       errorBorder: OutlineInputBorder(
-                                          borderRadius: BorderRadius.circular(15),
-                                          borderSide: BorderSide(color: Colors.white)
-                                      ),
-                                      errorStyle: TextStyle(color: Colors.white),
+                                          borderRadius:
+                                              BorderRadius.circular(15),
+                                          borderSide:
+                                              BorderSide(color: Colors.white)),
+                                      errorStyle:
+                                          TextStyle(color: Colors.white),
                                       focusedErrorBorder: OutlineInputBorder(
-                                          borderRadius: BorderRadius.circular(15),
-                                          borderSide: BorderSide(color: Colors.white)
-                                      ),
+                                          borderRadius:
+                                              BorderRadius.circular(15),
+                                          borderSide:
+                                              BorderSide(color: Colors.white)),
                                     ),
                                   ),
                                 ),
@@ -184,13 +200,18 @@ class _IntroPage2State extends State<IntroPage2> with SingleTickerProviderStateM
                             Row(
                               mainAxisSize: MainAxisSize.min,
                               children: [
-                                Text("Grade", style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
+                                Text("Grade",
+                                    style: TextStyle(
+                                        fontSize: 30,
+                                        fontWeight: FontWeight.bold)),
                                 Padding(padding: EdgeInsets.all(5)),
                                 Container(
-                                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 8.0),
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(15),
-                                    border: Border.all(color: Colors.white.withOpacity(0.42)),
+                                    border: Border.all(
+                                        color: Colors.white.withOpacity(0.42)),
                                     color: _colorTween.value,
                                   ),
                                   child: DropdownButton(
