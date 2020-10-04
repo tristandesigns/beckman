@@ -1,5 +1,5 @@
 import 'package:beckman/pages/management/intro/intro_page_1.dart';
-import 'package:beckman/tools/contacts_tools.dart';
+import 'package:beckman/pages/contacts/contacts_tools.dart';
 import 'package:dynamic_theme/dynamic_theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

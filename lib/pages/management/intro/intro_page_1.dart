@@ -1,7 +1,7 @@
 
 import 'package:beckman/main.dart';
 import 'package:beckman/pages/management/intro/intro_page_spine.dart';
-import 'package:beckman/widgets/welcome_card.dart';
+import 'package:beckman/pages/management/intro/welcome_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
