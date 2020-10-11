@@ -1,12 +1,6 @@
-import 'package:beckman/main.dart';
-import 'package:beckman/pages/contacts/contact_list_item.dart';
-import 'package:flutter/material.dart';
+import 'package:web_scraper/web_scraper.dart';
 
-class ContactsPage extends StatefulWidget {
-  @override
-  _ContactsPageState createState() => _ContactsPageState();
-<<<<<<< HEAD
-
+class ContactsTools {
   static Future<Map<String, Map<String, String>>> scrapeStaff() async {
     final webScraper = WebScraper('https://www.tustin.k12.ca.us/beckman/staff');
     Map<String, Map<String, String>> contacts = {};
@@ -117,52 +111,5 @@ class ContactsPage extends StatefulWidget {
       }
     }
     return contacts;
-  }
-=======
->>>>>>> 3b33d4cfdbefea35cac6122a517dbf2f13c2f401
-}
-
-class _ContactsPageState extends State<ContactsPage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        body: FutureBuilder(
-      future: contactsList,
-      builder: (_, staffSnapshot) {
-        if (!(staffSnapshot.hasData)) {
-          return Center(child: CircularProgressIndicator());
-<<<<<<< HEAD
-        } else {
-          return (ListView.builder(
-              padding: EdgeInsets.all(16),
-              itemCount: staffSnapshot.data.length,
-              itemBuilder: (_, index) {
-                var staffData = staffSnapshot.data.keys.toList();
-                staffData.sort((String a, String b) => a.compareTo(b));
-                String firstName = staffData[index].split(', ')[1];
-                String lastName = staffData[index].split(', ')[0];
-                String email = staffSnapshot.data[staffData[index]]['email'];
-                String title = staffSnapshot.data[staffData[index]]['title'];
-                print(title);
-                return (ContactListItem(firstName, lastName, email, title));
-              }));
-=======
->>>>>>> 3b33d4cfdbefea35cac6122a517dbf2f13c2f401
-        }
-        return (ListView.builder(
-            padding: EdgeInsets.all(16),
-            itemCount: staffSnapshot.data.length,
-            itemBuilder: (_, index) {
-              var staffData = staffSnapshot.data.keys.toList();
-              staffData.sort((String a, String b) => a.compareTo(b));
-              String firstName = staffData[index].split(', ')[1];
-              String lastName = staffData[index].split(', ')[0];
-              String email = staffSnapshot.data[staffData[index]]['email'];
-              String title = staffSnapshot.data[staffData[index]]['title'];
-              print(title);
-              return (ContactListItem(firstName, lastName, email, title));
-            }));
-      },
-    ));
   }
 }

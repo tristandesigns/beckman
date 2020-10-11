@@ -1,6 +1,7 @@
 
 import 'package:beckman/main.dart';
 import 'package:beckman/pages/management/intro/intro_page_spine.dart';
+import 'package:beckman/pages/management/intro/welcome_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -34,46 +35,7 @@ class _IntroPage1State extends State<IntroPage1> {
           bottomNavigationBar: IntroPageTools.getBottomAppBar(context, false),
           backgroundColor: Colors.transparent,
           body: Center(
-            child: Card(
-              elevation: 8,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15),
-              ),
-              child: Container(
-                padding: const EdgeInsets.all(15.0),
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      Color(0xFFC33764),
-                      Color(0xFF1D2671),
-                    ],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                  ),
-                  borderRadius: BorderRadius.circular(15)
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(25),
-                        color: Colors.white
-                      ),
-                      width: 100,
-                      height: 100,
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: FlutterLogo(),
-                      ),
-                    ),
-                    Padding(padding: EdgeInsets.all(10)),
-                    Text("Welcome to", style: TextStyle(fontSize: 30),),
-                    Text("Beckmanium", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),),
-                  ],
-                ),
-              ),
-            ),
+            child: WelcomeCard(),
           ),
         ),
       ),
