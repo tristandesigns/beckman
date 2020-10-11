@@ -32,7 +32,11 @@ class _ContactListItemState extends State<ContactListItem> {
               ),
             ],
           ),
-          Text("${this.title}"),
+          Row(
+            children: [
+              Text("${this.title}"),
+            ],
+          ),
         ]),
         Divider(),
       ],
